@@ -7,6 +7,10 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Home from "./pages/Home";
 import Universities from "./pages/Universities";
+import UniversityDetail from "./pages/UniversityDetail";
+import Programs from "./pages/Programs";
+import Services from "./pages/Services";
+import Blog from "./pages/Blog";
 import Consultation from "./pages/Consultation";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
@@ -26,6 +30,10 @@ const App = () => (
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/universities" element={<Universities />} />
+              <Route path="/university/:id" element={<UniversityDetail />} />
+              <Route path="/programs" element={<Programs />} />
+              <Route path="/services" element={<Services />} />
+              <Route path="/blog" element={<Blog />} />
               <Route path="/consultation" element={<Consultation />} />
               <Route path="/about" element={<About />} />
               <Route path="/contact" element={<Contact />} />
