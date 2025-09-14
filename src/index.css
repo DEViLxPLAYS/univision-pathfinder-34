@@ -10,6 +10,22 @@ All colors MUST be HSL.
   :root {
     --background: 0 0% 100%;
     --foreground: 222.2 84% 4.9%;
+    
+    /* Education Consultancy Brand Colors */
+    --primary: 213 94% 68%;
+    --primary-dark: 213 100% 42%;
+    --accent: 24 100% 50%;
+    --accent-light: 24 100% 60%;
+    
+    /* Gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(213 94% 68%), hsl(253 96% 73%));
+    --gradient-card: linear-gradient(145deg, hsl(213 94% 68% / 0.05), hsl(253 96% 73% / 0.05));
+    
+    /* Education specific colors */
+    --education-blue: 213 94% 68%;
+    --education-purple: 253 96% 73%;
+    --success-green: 142 71% 45%;
+    --warning-orange: 24 100% 50%;
 
     --card: 0 0% 100%;
     --card-foreground: 222.2 84% 4.9%;
@@ -17,11 +33,11 @@ All colors MUST be HSL.
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 213 94% 68%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 213 20% 96%;
+    --secondary-foreground: 213 94% 68%;
 
     --muted: 210 40% 96.1%;
     --muted-foreground: 215.4 16.3% 46.9%;
@@ -65,7 +81,7 @@ All colors MUST be HSL.
     --popover: 222.2 84% 4.9%;
     --popover-foreground: 210 40% 98%;
 
-    --primary: 210 40% 98%;
+    --primary: 213 94% 68%;
     --primary-foreground: 222.2 47.4% 11.2%;
 
     --secondary: 217.2 32.6% 17.5%;
