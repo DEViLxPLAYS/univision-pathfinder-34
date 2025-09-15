@@ -5,63 +5,393 @@ import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 import { MapPin, Star, Users, DollarSign, Calendar, GraduationCap, Award, Clock, BookOpen, ArrowLeft } from "lucide-react";
 
+// Import university logos
+import taylorsLogo from "@/assets/taylors-logo.jpg";
+import mahsaLogo from "@/assets/mahsa-logo.jpg";
+import segiLogo from "@/assets/segi-logo.jpg";
+import cityLogo from "@/assets/city-logo.jpg";
+import ucsiLogo from "@/assets/ucsi-logo.jpg";
+import intiLogo from "@/assets/inti-logo.jpg";
+
 const UniversityDetail = () => {
   const { id } = useParams();
   
-  // Mock data - in real app, fetch from API based on id
-  const university = {
-    id: parseInt(id || "1"),
-    name: "Harvard University",
-    location: "Cambridge, MA, USA",
-    country: "USA",
-    type: "Private",
-    ranking: 1,
-    students: "23,000+",
-    tuition: "$54,000/year",
-    image: "🏛️",
-    description: "Harvard University is a private Ivy League research university in Cambridge, Massachusetts. Founded in 1636, Harvard is the oldest institution of higher education in the United States and one of the most prestigious universities worldwide.",
-    accreditation: "New England Commission of Higher Education (NECHE)",
-    establishedYear: 1636,
-    campusSize: "209 acres",
-    acceptanceRate: "3%",
-    programs: [
-      {
-        id: 1,
-        name: "Computer Science",
-        level: "Bachelor",
-        duration: "4 years",
-        tuition: "$54,000/year",
-        intakeMonths: ["September", "January"],
-        requirements: "High School Diploma, SAT/ACT scores, TOEFL/IELTS for international students"
-      },
-      {
-        id: 2,
-        name: "Business Administration",
-        level: "Master",
-        duration: "2 years", 
-        tuition: "$73,440/year",
-        intakeMonths: ["September"],
-        requirements: "Bachelor's degree, GMAT/GRE scores, Work experience preferred"
-      },
-      {
-        id: 3,
-        name: "Medicine",
-        level: "Doctorate",
-        duration: "4 years",
-        tuition: "$65,203/year",
-        intakeMonths: ["August"],
-        requirements: "Bachelor's degree, MCAT scores, Pre-med coursework"
+  const universities = [
+    {
+      id: 1,
+      name: "Taylor's University",
+      location: "Subang Jaya, Selangor, Malaysia",
+      country: "Malaysia",
+      type: "Private",
+      ranking: 1,
+      students: "20,000+",
+      tuition: "RM 45,000/year (avg)",
+      image: taylorsLogo,
+      description: "Taylor's University is Malaysia's leading private university, renowned for its excellence in Hospitality, Tourism, Business, and Design. Established in 1969, Taylor's has built a strong reputation for providing world-class education with industry-relevant programs.",
+      accreditation: "Malaysian Qualifications Agency (MQA)",
+      establishedYear: 1969,
+      campusSize: "22 acres",
+      acceptanceRate: "Top private university in Malaysia – QS",
+      programs: [
+        {
+          id: 1,
+          name: "Bachelor of Culinary Arts Management",
+          level: "Bachelor",
+          duration: "3 years",
+          tuition: "RM 48,000/year",
+          intakeMonths: ["March", "August"],
+          requirements: "SPM: 5 credits, IELTS: 6.0+"
+        },
+        {
+          id: 2,
+          name: "Bachelor of International Hospitality Management",
+          level: "Bachelor",
+          duration: "3 years",
+          tuition: "RM 45,000/year",
+          intakeMonths: ["March", "August"],
+          requirements: "SPM: 5 credits, IELTS: 6.0+"
+        },
+        {
+          id: 3,
+          name: "Bachelor of Business (Marketing)",
+          level: "Bachelor",
+          duration: "3 years",
+          tuition: "RM 42,000/year",
+          intakeMonths: ["March", "August"],
+          requirements: "SPM: 5 credits, IELTS: 6.0+"
+        },
+        {
+          id: 4,
+          name: "Bachelor of Design (Interior)",
+          level: "Bachelor",
+          duration: "3 years",
+          tuition: "RM 46,000/year",
+          intakeMonths: ["March", "August"],
+          requirements: "SPM: 5 credits, Portfolio, IELTS: 6.0+"
+        }
+      ],
+      feeStructure: {
+        tuition: "RM 45,000",
+        accommodation: "RM 12,000",
+        meals: "RM 6,000",
+        books: "RM 2,000",
+        personal: "RM 3,000",
+        total: "RM 68,000"
       }
-    ],
-    feeStructure: {
-      tuition: "$54,000",
-      accommodation: "$18,000",
-      meals: "$7,025",
-      books: "$1,000",
-      personal: "$3,500",
-      total: "$83,525"
+    },
+    {
+      id: 2,
+      name: "MAHSA University",
+      location: "Bandar Saujana Putra, Selangor, Malaysia",
+      country: "Malaysia",
+      type: "Private",
+      ranking: 2,
+      students: "15,000+",
+      tuition: "RM 23,000/year (avg)",
+      image: mahsaLogo,
+      description: "MAHSA University is a leading private university specializing in Medicine, Dentistry, Pharmacy, Nursing & Allied Health. With modern facilities and experienced faculty, MAHSA provides world-class healthcare education.",
+      accreditation: "Malaysian Qualifications Agency (MQA)",
+      establishedYear: 2005,
+      campusSize: "42 acres",
+      acceptanceRate: "Leading in health sciences",
+      programs: [
+        {
+          id: 1,
+          name: "Bachelor of Medicine and Bachelor of Surgery (MBBS)",
+          level: "Bachelor",
+          duration: "5 years",
+          tuition: "RM 55,000/year",
+          intakeMonths: ["September"],
+          requirements: "A-Level: AAB in Sciences, IELTS: 7.0+"
+        },
+        {
+          id: 2,
+          name: "Bachelor of Dental Surgery",
+          level: "Bachelor",
+          duration: "5 years",
+          tuition: "RM 50,000/year",
+          intakeMonths: ["September"],
+          requirements: "A-Level: AAB in Sciences, IELTS: 7.0+"
+        },
+        {
+          id: 3,
+          name: "Bachelor of Pharmacy",
+          level: "Bachelor",
+          duration: "4 years",
+          tuition: "RM 35,000/year",
+          intakeMonths: ["January", "September"],
+          requirements: "A-Level: ABB in Sciences, IELTS: 6.5+"
+        },
+        {
+          id: 4,
+          name: "Bachelor of Nursing",
+          level: "Bachelor",
+          duration: "4 years",
+          tuition: "RM 25,000/year",
+          intakeMonths: ["January", "September"],
+          requirements: "A-Level: BBC in Sciences, IELTS: 6.5+"
+        }
+      ],
+      feeStructure: {
+        tuition: "RM 45,000",
+        accommodation: "RM 8,000",
+        meals: "RM 5,000",
+        books: "RM 2,500",
+        personal: "RM 2,500",
+        total: "RM 63,000"
+      }
+    },
+    {
+      id: 3,
+      name: "SEGi University & Colleges",
+      location: "Kota Damansara, Selangor, Malaysia",
+      country: "Malaysia",
+      type: "Private",
+      ranking: 3,
+      students: "25,000+",
+      tuition: "RM 30,000/year (avg)",
+      image: segiLogo,
+      description: "SEGi University is a large multi-campus private university offering diverse programs in Business, IT, Engineering & Health. With QS 5 Stars Plus rating, SEGi provides quality education across multiple disciplines.",
+      accreditation: "Malaysian Qualifications Agency (MQA)",
+      establishedYear: 1977,
+      campusSize: "30 acres",
+      acceptanceRate: "QS 5 Stars Plus rated",
+      programs: [
+        {
+          id: 1,
+          name: "Bachelor of Information Technology",
+          level: "Bachelor",
+          duration: "3 years",
+          tuition: "RM 32,000/year",
+          intakeMonths: ["January", "May", "September"],
+          requirements: "SPM: 5 credits including Mathematics, IELTS: 6.0+"
+        },
+        {
+          id: 2,
+          name: "Bachelor of Business Administration",
+          level: "Bachelor",
+          duration: "3 years",
+          tuition: "RM 30,000/year",
+          intakeMonths: ["January", "May", "September"],
+          requirements: "SPM: 5 credits, IELTS: 6.0+"
+        },
+        {
+          id: 3,
+          name: "Bachelor of Engineering (Civil)",
+          level: "Bachelor",
+          duration: "4 years",
+          tuition: "RM 35,000/year",
+          intakeMonths: ["January", "September"],
+          requirements: "A-Level: BBB in Mathematics & Sciences, IELTS: 6.0+"
+        },
+        {
+          id: 4,
+          name: "Bachelor of Physiotherapy",
+          level: "Bachelor",
+          duration: "4 years",
+          tuition: "RM 38,000/year",
+          intakeMonths: ["January", "September"],
+          requirements: "A-Level: BBC in Sciences, IELTS: 6.5+"
+        }
+      ],
+      feeStructure: {
+        tuition: "RM 32,000",
+        accommodation: "RM 9,000",
+        meals: "RM 5,500",
+        books: "RM 2,000",
+        personal: "RM 2,500",
+        total: "RM 51,000"
+      }
+    },
+    {
+      id: 4,
+      name: "City University Malaysia",
+      location: "Petaling Jaya, Selangor, Malaysia",
+      country: "Malaysia",
+      type: "Private",
+      ranking: 4,
+      students: "10,000+",
+      tuition: "RM 28,000/year (avg)",
+      image: cityLogo,
+      description: "City University Malaysia is an established private university with strong programs in Business, IT, Education & Design. With QS 5 Stars rating, City University provides quality education with industry focus.",
+      accreditation: "Malaysian Qualifications Agency (MQA)",
+      establishedYear: 1984,
+      campusSize: "15 acres",
+      acceptanceRate: "QS 5 Stars, SETARA \"Competitive\"",
+      programs: [
+        {
+          id: 1,
+          name: "Bachelor of Computer Science",
+          level: "Bachelor",
+          duration: "3 years",
+          tuition: "RM 28,000/year",
+          intakeMonths: ["February", "June", "October"],
+          requirements: "SPM: 5 credits including Mathematics, IELTS: 6.0+"
+        },
+        {
+          id: 2,
+          name: "Bachelor of Business Management",
+          level: "Bachelor",
+          duration: "3 years",
+          tuition: "RM 26,000/year",
+          intakeMonths: ["February", "June", "October"],
+          requirements: "SPM: 5 credits, IELTS: 6.0+"
+        },
+        {
+          id: 3,
+          name: "Bachelor of Education (TESL)",
+          level: "Bachelor",
+          duration: "4 years",
+          tuition: "RM 25,000/year",
+          intakeMonths: ["February", "June"],
+          requirements: "SPM: 5 credits including English, IELTS: 7.0+"
+        },
+        {
+          id: 4,
+          name: "Bachelor of Graphic Design",
+          level: "Bachelor",
+          duration: "3 years",
+          tuition: "RM 29,000/year",
+          intakeMonths: ["February", "June", "October"],
+          requirements: "SPM: 5 credits, Portfolio, IELTS: 6.0+"
+        }
+      ],
+      feeStructure: {
+        tuition: "RM 27,000",
+        accommodation: "RM 8,500",
+        meals: "RM 5,000",
+        books: "RM 1,800",
+        personal: "RM 2,200",
+        total: "RM 44,500"
+      }
+    },
+    {
+      id: 5,
+      name: "UCSI University",
+      location: "Kuala Lumpur, Malaysia",
+      country: "Malaysia",
+      type: "Private",
+      ranking: 5,
+      students: "12,000+",
+      tuition: "RM 40,000/year (avg)",
+      image: ucsiLogo,
+      description: "UCSI University is highly ranked for Medicine, Pharmacy, Music & Hospitality with global recognition. With Top 300 QS World Ranking, UCSI provides world-class education across various disciplines.",
+      accreditation: "Malaysian Qualifications Agency (MQA)",
+      establishedYear: 1986,
+      campusSize: "19 acres",
+      acceptanceRate: "Top 300 QS World Ranking",
+      programs: [
+        {
+          id: 1,
+          name: "Bachelor of Medicine and Bachelor of Surgery (MBBS)",
+          level: "Bachelor",
+          duration: "5 years",
+          tuition: "RM 60,000/year",
+          intakeMonths: ["September"],
+          requirements: "A-Level: AAA in Sciences, IELTS: 7.0+"
+        },
+        {
+          id: 2,
+          name: "Bachelor of Pharmacy",
+          level: "Bachelor",
+          duration: "4 years",
+          tuition: "RM 40,000/year",
+          intakeMonths: ["January", "September"],
+          requirements: "A-Level: ABB in Sciences, IELTS: 6.5+"
+        },
+        {
+          id: 3,
+          name: "Bachelor of Music Performance",
+          level: "Bachelor",
+          duration: "3 years",
+          tuition: "RM 45,000/year",
+          intakeMonths: ["February", "September"],
+          requirements: "Music Audition, SPM: 5 credits, IELTS: 6.0+"
+        },
+        {
+          id: 4,
+          name: "Bachelor of Hospitality Management",
+          level: "Bachelor",
+          duration: "3 years",
+          tuition: "RM 38,000/year",
+          intakeMonths: ["January", "May", "September"],
+          requirements: "SPM: 5 credits, IELTS: 6.0+"
+        }
+      ],
+      feeStructure: {
+        tuition: "RM 45,000",
+        accommodation: "RM 10,000",
+        meals: "RM 6,000",
+        books: "RM 2,500",
+        personal: "RM 3,000",
+        total: "RM 66,500"
+      }
+    },
+    {
+      id: 6,
+      name: "INTI International University",
+      location: "Nilai, Negeri Sembilan, Malaysia",
+      country: "Malaysia",
+      type: "Private",
+      ranking: 6,
+      students: "16,000+",
+      tuition: "RM 32,000/year (avg)",
+      image: intiLogo,
+      description: "INTI International University is strong in Business, Engineering & IT, known for industry collaborations & international exposure. With QS ranking and global partnerships, INTI provides internationally recognized education.",
+      accreditation: "Malaysian Qualifications Agency (MQA)",
+      establishedYear: 1986,
+      campusSize: "82 acres",
+      acceptanceRate: "QS ranked, globally partnered",
+      programs: [
+        {
+          id: 1,
+          name: "Bachelor of Engineering (Electrical & Electronic)",
+          level: "Bachelor",
+          duration: "4 years",
+          tuition: "RM 34,000/year",
+          intakeMonths: ["January", "May", "August"],
+          requirements: "A-Level: BBB in Mathematics & Physics, IELTS: 6.0+"
+        },
+        {
+          id: 2,
+          name: "Bachelor of Business (International Business)",
+          level: "Bachelor",
+          duration: "3 years",
+          tuition: "RM 30,000/year",
+          intakeMonths: ["January", "May", "August"],
+          requirements: "SPM: 5 credits, IELTS: 6.0+"
+        },
+        {
+          id: 3,
+          name: "Bachelor of Information Technology",
+          level: "Bachelor",
+          duration: "3 years",
+          tuition: "RM 32,000/year",
+          intakeMonths: ["January", "May", "August"],
+          requirements: "SPM: 5 credits including Mathematics, IELTS: 6.0+"
+        },
+        {
+          id: 4,
+          name: "Bachelor of Mass Communication",
+          level: "Bachelor",
+          duration: "3 years",
+          tuition: "RM 31,000/year",
+          intakeMonths: ["January", "May", "August"],
+          requirements: "SPM: 5 credits including English, IELTS: 6.5+"
+        }
+      ],
+      feeStructure: {
+        tuition: "RM 32,000",
+        accommodation: "RM 7,500",
+        meals: "RM 4,500",
+        books: "RM 2,000",
+        personal: "RM 2,500",
+        total: "RM 48,500"
+      }
     }
-  };
+  ];
+
+  const university = universities.find(uni => uni.id === parseInt(id || "1")) || universities[0];
 
   return (
     <div className="min-h-screen py-8">
@@ -80,7 +410,11 @@ const UniversityDetail = () => {
             <Card className="border-none shadow-lg">
               <CardHeader>
                 <div className="flex items-start space-x-4">
-                  <span className="text-6xl">{university.image}</span>
+                  <img 
+                    src={university.image} 
+                    alt={`${university.name} logo`}
+                    className="w-20 h-20 rounded-lg object-cover"
+                  />
                   <div className="flex-1">
                     <div className="flex items-start justify-between">
                       <div>

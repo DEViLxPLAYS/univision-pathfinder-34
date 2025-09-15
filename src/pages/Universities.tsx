@@ -7,6 +7,14 @@ import { Badge } from "@/components/ui/badge";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Search, MapPin, Star, Users, DollarSign, Filter } from "lucide-react";
 
+// Import university logos
+import taylorsLogo from "@/assets/taylors-logo.jpg";
+import mahsaLogo from "@/assets/mahsa-logo.jpg";
+import segiLogo from "@/assets/segi-logo.jpg";
+import cityLogo from "@/assets/city-logo.jpg";
+import ucsiLogo from "@/assets/ucsi-logo.jpg";
+import intiLogo from "@/assets/inti-logo.jpg";
+
 const Universities = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCountry, setSelectedCountry] = useState("all");
@@ -15,91 +23,91 @@ const Universities = () => {
   const universities = [
     {
       id: 1,
-      name: "Harvard University",
-      location: "Cambridge, MA, USA",
-      country: "USA",
+      name: "Taylor's University",
+      location: "Subang Jaya, Selangor, Malaysia",
+      country: "Malaysia",
       type: "Private",
       ranking: 1,
-      students: "23,000+",
-      tuition: "$54,000/year",
-      image: "🏛️",
-      description: "World's leading research university with excellence in all fields.",
-      programs: 150,
-      acceptanceRate: "3%"
+      students: "20,000+",
+      tuition: "RM 45,000/year (avg)",
+      image: taylorsLogo,
+      description: "Malaysia's leading private university, strong in Hospitality, Tourism, Business & Design.",
+      programs: 100,
+      acceptanceRate: "Top private university in Malaysia – QS"
     },
     {
       id: 2,
-      name: "University of Oxford",
-      location: "Oxford, UK",
-      country: "UK",
-      type: "Public",
+      name: "MAHSA University",
+      location: "Bandar Saujana Putra, Selangor, Malaysia",
+      country: "Malaysia",
+      type: "Private",
       ranking: 2,
-      students: "24,000+",
-      tuition: "£28,000/year",
-      image: "🏰",
-      description: "One of the oldest and most prestigious universities in the world.",
-      programs: 120,
-      acceptanceRate: "17%"
+      students: "15,000+",
+      tuition: "RM 23,000/year (avg)",
+      image: mahsaLogo,
+      description: "Specialized in Medicine, Dentistry, Pharmacy, Nursing & Allied Health with modern campus.",
+      programs: 80,
+      acceptanceRate: "Leading in health sciences"
     },
     {
       id: 3,
-      name: "University of Toronto",
-      location: "Toronto, ON, Canada",
-      country: "Canada",
-      type: "Public",
-      ranking: 18,
-      students: "97,000+",
-      tuition: "CAD $58,000/year",
-      image: "🍁",
-      description: "Top-ranked Canadian university with diverse academic programs.",
-      programs: 200,
-      acceptanceRate: "43%"
+      name: "SEGi University & Colleges",
+      location: "Kota Damansara, Selangor, Malaysia",
+      country: "Malaysia",
+      type: "Private",
+      ranking: 3,
+      students: "25,000+",
+      tuition: "RM 30,000/year (avg)",
+      image: segiLogo,
+      description: "Large multi-campus private university with diverse programs in Business, IT, Engineering & Health.",
+      programs: 120,
+      acceptanceRate: "QS 5 Stars Plus rated"
     },
     {
       id: 4,
-      name: "University of Melbourne",
-      location: "Melbourne, VIC, Australia",
-      country: "Australia",
-      type: "Public",
-      ranking: 33,
-      students: "50,000+",
-      tuition: "AUD $45,000/year",
-      image: "🐨",
-      description: "Australia's leading university with strong research focus.",
-      programs: 180,
-      acceptanceRate: "70%"
+      name: "City University Malaysia",
+      location: "Petaling Jaya, Selangor, Malaysia",
+      country: "Malaysia",
+      type: "Private",
+      ranking: 4,
+      students: "10,000+",
+      tuition: "RM 28,000/year (avg)",
+      image: cityLogo,
+      description: "Established private university with strong programs in Business, IT, Education & Design.",
+      programs: 90,
+      acceptanceRate: "QS 5 Stars, SETARA \"Competitive\""
     },
     {
       id: 5,
-      name: "Technical University of Munich",
-      location: "Munich, Germany",
-      country: "Germany",
-      type: "Public",
-      ranking: 50,
-      students: "45,000+",
-      tuition: "€350/semester",
-      image: "🏢",
-      description: "Leading technical university in Germany with innovation focus.",
-      programs: 165,
-      acceptanceRate: "8%"
+      name: "UCSI University",
+      location: "Kuala Lumpur, Malaysia",
+      country: "Malaysia",
+      type: "Private",
+      ranking: 5,
+      students: "12,000+",
+      tuition: "RM 40,000/year (avg)",
+      image: ucsiLogo,
+      description: "Highly ranked for Medicine, Pharmacy, Music & Hospitality with global recognition.",
+      programs: 100,
+      acceptanceRate: "Top 300 QS World Ranking"
     },
     {
       id: 6,
-      name: "University of Amsterdam",
-      location: "Amsterdam, Netherlands",
-      country: "Netherlands",
-      type: "Public",
-      ranking: 58,
-      students: "42,000+",
-      tuition: "€14,000/year",
-      image: "🌷",
-      description: "Historic university with modern approach to education.",
-      programs: 140,
-      acceptanceRate: "25%"
+      name: "INTI International University",
+      location: "Nilai, Negeri Sembilan, Malaysia",
+      country: "Malaysia",
+      type: "Private",
+      ranking: 6,
+      students: "16,000+",
+      tuition: "RM 32,000/year (avg)",
+      image: intiLogo,
+      description: "Strong in Business, Engineering & IT; known for industry collaborations & international exposure.",
+      programs: 110,
+      acceptanceRate: "QS ranked, globally partnered"
     }
   ];
 
-  const countries = ["all", "USA", "UK", "Canada", "Australia", "Germany", "Netherlands"];
+  const countries = ["all", "Malaysia", "Russia"];
   const types = ["all", "Public", "Private"];
 
   const filteredUniversities = universities.filter((uni) => {
@@ -181,7 +189,11 @@ const Universities = () => {
               <CardHeader>
                 <div className="flex items-start justify-between">
                   <div className="flex items-center space-x-3">
-                    <span className="text-3xl">{university.image}</span>
+                    <img 
+                      src={university.image} 
+                      alt={`${university.name} logo`}
+                      className="w-12 h-12 rounded-lg object-cover"
+                    />
                     <div>
                       <CardTitle className="text-lg">{university.name}</CardTitle>
                       <div className="flex items-center space-x-1 text-muted-foreground">
