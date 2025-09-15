@@ -54,12 +54,8 @@ const Home = () => {
   ];
 
   const popularDestinations = [
-    { country: "United States", universities: 120, flag: "🇺🇸" },
-    { country: "United Kingdom", universities: 85, flag: "🇬🇧" },
-    { country: "Canada", universities: 95, flag: "🇨🇦" },
-    { country: "Australia", universities: 70, flag: "🇦🇺" },
-    { country: "Germany", universities: 60, flag: "🇩🇪" },
-    { country: "Netherlands", universities: 45, flag: "🇳🇱" }
+    { country: "Malaysia", universities: 6, flag: "🇲🇾", programs: "All Programs" },
+    { country: "Russia", universities: "Coming Soon", flag: "🇷🇺", programs: "MBBS Only" }
   ];
 
   return (
@@ -80,13 +76,13 @@ const Home = () => {
             Expert guidance for studying abroad. We help students achieve their dreams with personalized consultation and comprehensive support.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg-accent hover:bg-accent-light text-white" asChild>
+            <Button size="lg" className="bg-white text-primary hover:bg-white/90 font-semibold shadow-lg" asChild>
               <Link to="/universities">
                 <BookOpen className="mr-2 h-5 w-5" />
                 Explore Universities
               </Link>
             </Button>
-            <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-primary" asChild>
+            <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-primary font-semibold" asChild>
               <Link to="/consultation">
                 Book Free Consultation
               </Link>
@@ -99,7 +95,7 @@ const Home = () => {
       <section className="py-16 lg:py-24 bg-gradient-card">
         <div className="container px-4">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Why Choose EduConsult?</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">Why Choose FutureAceConsultancy?</h2>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
               We provide comprehensive support to make your study abroad journey smooth and successful.
             </p>
@@ -144,9 +140,15 @@ const Home = () => {
                     </div>
                     <ArrowRight className="h-5 w-5 text-muted-foreground" />
                   </div>
-                  <div className="flex items-center space-x-2">
-                    <MapPin className="h-4 w-4 text-muted-foreground" />
-                    <span className="text-muted-foreground">{destination.universities} Universities</span>
+                  <div className="space-y-2">
+                    <div className="flex items-center space-x-2">
+                      <MapPin className="h-4 w-4 text-muted-foreground" />
+                      <span className="text-muted-foreground">{destination.universities} Universities</span>
+                    </div>
+                    <div className="flex items-center space-x-2">
+                      <BookOpen className="h-4 w-4 text-muted-foreground" />
+                      <span className="text-muted-foreground">{destination.programs}</span>
+                    </div>
                   </div>
                 </CardContent>
               </Card>
